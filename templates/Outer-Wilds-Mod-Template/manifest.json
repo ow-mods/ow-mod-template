@@ -4,5 +4,5 @@
   "name": "$safeprojectname$",
   "uniqueName": "$username$.$safeprojectname$",
   "version": "0.1.0",
-  "owmlVersion": "2.3.2"
+  "owmlVersion": "2.7.0"
 }
