@@ -1,5 +1,5 @@
 # OuterWildsModTemplateNuget
- A nuget package that conains a template for creating outer wilds mods
+ A nuget package that contains a template for creating outer wilds mods
 
 ## Installation
 
