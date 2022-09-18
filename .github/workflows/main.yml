@@ -15,12 +15,6 @@ jobs:
       
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
-        
-      - name: Install dependencies
-        run: dotnet restore
-        
-      - name: Pack
-        run: dotnet build — configuration Release — no-restore
       
       - uses: brandedoutcast/publish-nuget@v2.5.5
         with:
