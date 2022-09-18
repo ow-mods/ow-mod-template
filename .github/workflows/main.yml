@@ -1,0 +1,31 @@
+
+name: Publish Package
+
+on:
+  push:
+    branches: [main]
+    
+jobs:
+  Publish:
+    name: Publish Package
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        
+      - name: Install dependencies
+        run: dotnet restore
+        
+      - name: Pack
+        run: dotnet build — configuration Release — no-restore
+      
+      - uses: brandedoutcast/publish-nuget@v2.5.5
+        with:
+          PROJECT_FILE_PATH: ./OuterWildsModTemplate.csproj
+          PACKAGE_NAME: OuterWildsModTemplate
+          VERSION_REGEX: ‘^\s*<Version>(.*)<\/Version>\s*$’
+          TAG_FORMAT: ‘*’
+          NUGET_KEY: ${{secrets.NUGET_KEY}}
