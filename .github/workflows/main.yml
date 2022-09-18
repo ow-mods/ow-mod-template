@@ -20,6 +20,6 @@ jobs:
         with:
           PROJECT_FILE_PATH: ./OuterWildsModTemplate.csproj
           PACKAGE_NAME: OuterWildsModTemplate
-          VERSION_REGEX: ‘^\s*<Version>(.*)<\/Version>\s*$’
+          VERSION_REGEX: ‘^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$’
           TAG_FORMAT: ‘*’
           NUGET_KEY: ${{secrets.NUGET_KEY}}
