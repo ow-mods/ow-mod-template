@@ -28,14 +28,16 @@
         ".template.config/**/*",
         "**/*.filelist",
         "**/*.lock.json",
-        "**/.gitignore"
+        "**/.gitignore",
+        ".github/**",
       ]
     },
     {
       "source": "./",
       "target": "../",
       "include": [
-        "**/.gitignore"
+        "**/.gitignore",
+        ".github/**"
       ]
     }
   ],

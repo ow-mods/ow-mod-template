@@ -21,9 +21,7 @@ public class $safeprojectname$ : ModBehaviour
 		LoadManager.OnCompleteSceneLoad += (scene, loadScene) =>
 		{
 			if (loadScene != OWScene.SolarSystem) return;
-			var playerBody = FindObjectOfType<PlayerBody>();
-			ModHelper.Console.WriteLine($"Found player body, and it's called {playerBody.name}!",
-				MessageType.Success);
+			ModHelper.Console.WriteLine("Loaded into solar system!", MessageType.Success);
 		};
 	}
 }
