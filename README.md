@@ -14,7 +14,7 @@ dotnet new --install Bwc9876.OuterWildsModTemplate
 Run
 
 ```ps
-dotnet new sln --new MySolutionName
+dotnet new sln --name MySolutionName
 dotnet new OuterWildsMod -n MyProjectName --AuthorName MyName
 dotnet sln add MyProjectName/
 ```
