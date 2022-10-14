@@ -6,8 +6,8 @@
   "uniqueName": "$username$.$safeprojectname$",
   "version": "0.1.0",
   "owmlVersion": "$owmlVersion$",
-//#if (usesNH)
-  "dependencies": ["xen.NewHorizons"],
+//#if( usesNH )
+  "dependencies": ["xen.NewHorizons"]
 //#else
   "dependencies": []
 //#endif

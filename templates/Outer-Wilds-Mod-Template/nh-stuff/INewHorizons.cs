@@ -1,11 +1,17 @@
+using OWML.Common;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
 namespace $safeprojectname$;
 
 public interface INewHorizons {
   [Obsolete("Create(Dictionary<string, object> config) is deprecated, please use LoadConfigs(IModBehaviour mod) instead")]
-  void Create(Dictionary < string, object > config);
+  void Create(Dictionary <string, object> config);
 
   [Obsolete("Create(Dictionary<string, object> config) is deprecated, please use LoadConfigs(IModBehaviour mod) instead")]
-  void Create(Dictionary < string, object > config, IModBehaviour mod);
+  void Create(Dictionary <string, object> config, IModBehaviour mod);
 
   /// <summary>
   /// Will load all configs in the regular folders (planets, systems, translations, etc) for this mod.
@@ -81,7 +87,7 @@ public interface INewHorizons {
   /// This method will not set its position. You will have to do that with the returned object.
   /// </summary>
   AudioSignal SpawnSignal(IModBehaviour mod, GameObject root, string audio, string name, string frequency,
-    float sourceRadius = 1 f, float detectionRadius = 20 f, float identificationRadius = 10 f, bool insideCloak = false,
+    float sourceRadius = 1f, float detectionRadius = 20f, float identificationRadius = 10f, bool insideCloak = false,
     bool onlyAudibleToScope = true, string reveals = "");
 
   /// <summary>
@@ -89,7 +95,7 @@ public interface INewHorizons {
   /// This is the same as using Props->dialogue in a config, but also returns the spawned game objects to you.
   /// This method will not set the position of the dialogue or remote trigger. You will have to do that with the returned objects.
   /// </summary>
-  (CharacterDialogueTree, RemoteDialogueTrigger) SpawnDialogue(IModBehaviour mod, GameObject root, string xmlFile, float radius = 1 f,
-    float range = 1 f, string blockAfterPersistentCondition = null, float lookAtRadius = 1 f, string pathToAnimController = null,
-    float remoteTriggerRadius = 0 f);
+  (CharacterDialogueTree, RemoteDialogueTrigger) SpawnDialogue(IModBehaviour mod, GameObject root, string xmlFile, float radius = 1f,
+    float range = 1f, string blockAfterPersistentCondition = null, float lookAtRadius = 1f, string pathToAnimController = null,
+    float remoteTriggerRadius = 0f);
 }

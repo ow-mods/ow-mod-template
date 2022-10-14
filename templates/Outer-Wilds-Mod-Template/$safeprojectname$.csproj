@@ -28,4 +28,20 @@
   <ItemGroup>
     <Content Include="$safeprojectname$.csproj.user" />
   </ItemGroup>
+  <!--#if (usesNH) -->
+  <ItemGroup>
+    <None Include="planets\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="systems\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="translations\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="addon-manifest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <!--#endif -->
 </Project>

@@ -17,7 +17,7 @@ public class $safeprojectname$ : ModBehaviour
 		// Starting here, you'll have access to OWML's mod helper.
 		ModHelper.Console.WriteLine($"My mod {nameof($safeprojectname$)} is loaded!", MessageType.Success);
 
-#if (usesNH)
+#if( usesNH )
 		// Get the New Horizons API and load configs
 		var newHorizons = ModHelper.Interaction.TryGetModApi<INewHorizons>("xen.NewHorizons");
 		newHorizons.LoadConfigs(this);
