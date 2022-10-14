@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json.schemastore.org/template",
+  "$schema": "https://json.schemastore.org/template#",
   "author": "Bwc9876",
   "classifications": [
     "Library"
@@ -29,7 +29,7 @@
         "**/*.filelist",
         "**/*.lock.json",
         "**/.gitignore",
-	"LICENSE",
+        "LICENSE",
         ".github/**"
       ]
     },
@@ -39,7 +39,7 @@
       "include": [
         "**/.gitignore",
         ".github/**",
-	"LICENSE"
+        "LICENSE"
       ]
     }
   ],
@@ -53,14 +53,14 @@
       "replaces": "$username$",
       "description": "Author of this mod (no spaces!)"
     },
-	"year": {
-	  "type": "generated",
-	  "generator": "now",
-	  "parameters": {
-		  "format": "yyyy"
-	  },
-	  "replaces": "$year$"
-	},
+    "year": {
+      "type": "generated",
+      "generator": "now",
+      "parameters": {
+        "format": "yyyy"
+      },
+      "replaces": "$year$"
+    },
     "skipRestore": {
       "type": "parameter",
       "datatype": "bool",
