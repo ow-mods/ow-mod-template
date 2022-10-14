@@ -23,6 +23,7 @@
         "**/*.csproj.user"
       ],
       "exclude": [
+        "nh-stuff/**",
         "**/[Bb]in/**",
         "**/[Oo]bj/**",
         ".template.config/**/*",
@@ -31,14 +32,6 @@
         "**/.gitignore",
         "LICENSE",
         ".github/**"
-      ],
-      "modifiers": [
-        {
-          "condition": "(!usesNH)",
-          "exclude": [
-            "INewHorizons.cs"
-          ]
-        }
       ]
     },
     {
@@ -48,6 +41,18 @@
         "**/.gitignore",
         ".github/**",
         "LICENSE"
+      ]
+    },
+    {
+      "source": "./nh-stuff/",
+      "target": "./",
+      "modifiers": [
+        {
+          "condition": "(!usesNH)",
+          "exclude": [
+            "**"
+          ]
+        }
       ]
     }
   ],
@@ -69,7 +74,7 @@
       },
       "replaces": "$year$"
     },
-    "useNH": {
+    "usesNH": {
       "type": "parameter",
       "displayName": "Use New Horizons",
       "datatype": "bool",
@@ -90,7 +95,7 @@
       "parameters": {
         "value": "1.1.13.393"
       },
-      "replaces": "$gameLibsVersion"
+      "replaces": "$gameLibsVersion$"
     },
     "harmonyVersion": {
       "type": "generated",
