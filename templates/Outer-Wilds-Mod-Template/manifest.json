@@ -1,8 +1,14 @@
 {
+  "$schema": "https://raw.githubusercontent.com/ow-mods/owml/master/schemas/manifest_schema.json",
   "filename": "$safeprojectname$.dll",
   "author": "$username$",
   "name": "$safeprojectname$",
   "uniqueName": "$username$.$safeprojectname$",
   "version": "0.1.0",
-  "owmlVersion": "2.7.0"
+  "owmlVersion": "$owmlVersion$",
+//#if (usesNH)
+  "dependencies": ["xen.NewHorizons"],
+//#else
+  "dependencies": []
+//#endif
 }

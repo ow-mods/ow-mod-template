@@ -31,6 +31,14 @@
         "**/.gitignore",
         "LICENSE",
         ".github/**"
+      ],
+      "modifiers": [
+        {
+          "condition": "(!useNH)",
+          "exclude": [
+            "INewHorizons.cs"
+          ]
+        }
       ]
     },
     {
@@ -60,6 +68,37 @@
         "format": "yyyy"
       },
       "replaces": "$year$"
+    },
+    "useNH": {
+      "type": "parameter",
+      "displayName": "Use New Horizons",
+      "datatype": "bool",
+      "description": "Adds the New Horizons API automatically and calls LoadConfigs in Start",
+      "defaultValue": "false"
+    },
+    "owmlVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "parameters": {
+        "value": "2.7.2"
+      },
+      "replaces": "$owmlVersion$"
+    },
+    "gameLibsVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "parameters": {
+        "value": "1.1.13.393"
+      },
+      "replaces": "$gameLibsVersion"
+    },
+    "harmonyVersion": {
+      "type": "generated",
+      "generator": "constant",
+      "parameters": {
+        "value": "2.10.0"
+      },
+      "replaces": "$harmonyVersion$"
     },
     "skipRestore": {
       "type": "parameter",
