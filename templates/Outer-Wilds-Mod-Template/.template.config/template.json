@@ -29,7 +29,8 @@
         "**/*.filelist",
         "**/*.lock.json",
         "**/.gitignore",
-        ".github/**",
+	"LICENSE",
+        ".github/**"
       ]
     },
     {
@@ -37,7 +38,8 @@
       "target": "../",
       "include": [
         "**/.gitignore",
-        ".github/**"
+        ".github/**",
+	"LICENSE"
       ]
     }
   ],
