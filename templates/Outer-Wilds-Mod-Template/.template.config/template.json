@@ -34,7 +34,7 @@
       ],
       "modifiers": [
         {
-          "condition": "(!useNH)",
+          "condition": "(!usesNH)",
           "exclude": [
             "INewHorizons.cs"
           ]
