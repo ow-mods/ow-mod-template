@@ -97,14 +97,6 @@
       },
       "replaces": "$gameLibsVersion$"
     },
-    "harmonyVersion": {
-      "type": "generated",
-      "generator": "constant",
-      "parameters": {
-        "value": "2.10.0"
-      },
-      "replaces": "$harmonyVersion$"
-    },
     "skipRestore": {
       "type": "parameter",
       "datatype": "bool",
