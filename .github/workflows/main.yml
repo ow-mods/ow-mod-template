@@ -1,4 +1,3 @@
-
 name: Publish Package
 
 on:
@@ -12,16 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Setup NuGet
-        uses: NuGet/setup-nuget@v1.1.1
-        with:
-          nuget-api-key: ${{secrets.NUGET_KEY}}
-          
-      - name: Restore (For Some Reason)
-        run: nuget restore OuterWildsModTemplate.csproj
-
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        
+      - name: Restore
+        run: dotnet restore
+        
       - name: Pack Template
-        run: nuget pack OuterWildsModTemplate.csproj -Build -NonInteractive
+        run: dotnet pack --no-build -c Release -o .
+        
+      - name: AAAAA
+        run: ls
       
-      - name: Upload Package
-        run: nuget push Bwc9876.OuterWildsModTemplate.*.nupkg
+#       - name: Upload Package
+#         run: dotnet nuget push Bwc9876.OuterWildsModTemplate.*.nupkg -k ${{secrets.NUGET_KEY}} -s https://api.nuget.org/v3/index.json
