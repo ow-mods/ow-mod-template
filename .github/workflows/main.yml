@@ -14,11 +14,9 @@ jobs:
       
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
+        
+      - name: Pack Template
+        run: dotnet pack -c Release --no-build
       
-      - uses: brandedoutcast/publish-nuget@v2.5.5
-        with:
-          PROJECT_FILE_PATH: ./OuterWildsModTemplate.csproj
-          PACKAGE_NAME: OuterWildsModTemplate
-          VERSION_REGEX: '^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$'
-          TAG_FORMAT: '*'
-          NUGET_KEY: ${{secrets.NUGET_KEY}}
+      - name: Upload Package
+        run: dotnet nuget push ./Bin/Release/Bwc9876.OuterWildsModTemplate.*.nupkg -k ${{secrets.NUGET_KEY}} -s https://api.nuget.org/v3/index.json
