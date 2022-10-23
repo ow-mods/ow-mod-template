@@ -12,11 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.1.1
+        with:
+          nuget-api-key: ${{secrets.NUGET_KEY}}
+
       - name: Pack Template
-        run: dotnet pack -c Release --no-build
+        run: nuget pack OuterWildsModTemplate.csproj
       
       - name: Upload Package
-        run: dotnet nuget push ./Bin/Release/Bwc9876.OuterWildsModTemplate.*.nupkg -k ${{secrets.NUGET_KEY}} -s https://api.nuget.org/v3/index.json
+        run: nuget push Bwc9876.OuterWildsModTemplate.*.nupkg
