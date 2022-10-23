@@ -12,6 +12,10 @@ dotnet new --install Bwc9876.OuterWildsModTemplate
 
 ## Usage
 
+Check the [getting started](https://owml.outerwildsmods.com/guides/getting_started.html) page on the OWML docs for a more thorough guide.
+
+## Command Line Usage
+
 Run
 
 ```ps
