@@ -4,15 +4,15 @@ This file goes over the overall structure of the template
 
 ## Building
 
-Run `dotnet pack --no-build`.
+First run `dotnet restore`.
 
-The `--no-build` is bc we don't want to compile anything (technically you *can* build but it'll just make a bunch of junk files)
+Then run `dotnet pack --no-build`.
+
+The `--no-build` is bc we don't want to compile anything (technically you *can* build but it'll just make a bunch of junk files).
 
 ### Releasing
 
 Bump the version in `OuterWildsModTemplate.csproj` and dispatch the "Publish Package" action. 
-
-**This workflow will always fail! It's fine! Just check on [nuget.org](https://www.nuget.org/packages/Bwc9876.OuterWildsModTemplate/#versions-body-tab) for the new version (it may take a sec!)**
 
 ## Layout
 
