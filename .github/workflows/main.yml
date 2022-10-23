@@ -18,7 +18,7 @@ jobs:
           nuget-api-key: ${{secrets.NUGET_KEY}}
 
       - name: Pack Template
-        run: nuget pack OuterWildsModTemplate.csproj
+        run: nuget pack OuterWildsModTemplate.csproj -Build -NonInteractive
       
       - name: Upload Package
         run: nuget push Bwc9876.OuterWildsModTemplate.*.nupkg
