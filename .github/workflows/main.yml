@@ -18,7 +18,7 @@ jobs:
           nuget-api-key: ${{secrets.NUGET_KEY}}
           
       - name: Restore (For Some Reason)
-        run: nuget restore
+        run: nuget restore OuterWildsModTemplate.csproj
 
       - name: Pack Template
         run: nuget pack OuterWildsModTemplate.csproj -Build -NonInteractive
