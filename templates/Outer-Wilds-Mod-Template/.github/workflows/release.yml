@@ -2,6 +2,13 @@ name: Create Release
 
 on:
     workflow_dispatch:
+      inputs:
+        prerelease:
+          description: Prerelease
+          type: boolean
+        bypassCheck:
+          description: Bypass Version Check
+          type: boolean
 
 env:
     PROJ_USERNAME: $username$
@@ -17,18 +24,19 @@ jobs:
         steps:
             - name: Checkout
               uses: "actions/checkout@v3"
+              
+            - name: Fetch
+              run: git fetch
 
             - name: Read Manifest
               id: read-manifest
               run: echo "manifest=$(< ./${{ env.PROJ_NAME }}/manifest.json sed ':a;N;$!ba;s/\n/ /g')" >> $GITHUB_OUTPUT
 
             - name: Check For Release
-              uses: mukunku/tag-exists-action@v1.0.0
               id: check-tag
-              with:
-                tag: "v${{fromJson(steps.read-manifest.outputs.manifest).version}}"
+              run: echo "exists=$(git ls-remote --exit-code --tags origin ${{ env.TAG }} >/dev/null 2>&1 && echo true || echo false)" >> $GITHUB_OUTPUT
               env:
-                GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+                TAG: "v${{fromJson(steps.read-manifest.outputs.manifest).version}}"
             
             - name: Output Version Info
               id: out
@@ -37,11 +45,11 @@ jobs:
                 echo "exists=${{steps.check-tag.outputs.exists}}" >> $GITHUB_OUTPUT
 
             - name: Error
-              if: ${{ steps.out.outputs.exists != 'false' }}
+              if: ${{ steps.out.outputs.exists != 'false' && (!inputs.bypassCheck) }}
               run: echo "::error file=manifest.json,title=Refusing to Release::Your mod was not released because there is already a release with the version in manifest.json"
     release:
         needs: pre_job
-        if: ${{ (needs.pre_job.outputs.version != '0.0.0') && (needs.pre_job.outputs.exists == 'false') }}
+        if: ${{ (needs.pre_job.outputs.version != '0.0.0') && (needs.pre_job.outputs.exists == 'false') || (inputs.bypassCheck) }}
         name: Create Release
         runs-on: windows-latest
         steps:
@@ -76,4 +84,4 @@ jobs:
                 omitBodyDuringUpdate: true
                 artifacts: "${{ env.PROJ_USERNAME}}.${{ env.PROJ_NAME }}.zip"
                 draft: true
-                prerelease: false
+                prerelease: ${{ inputs.prerelease }}
