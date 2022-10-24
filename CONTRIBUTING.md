@@ -22,14 +22,12 @@ This has the actual template in it, in the future we might want to add more (lik
 
 ### templates/OuterWildsModTemplate/.template.config/template.json
 
-This holds the configuration for the template, here's where you'll go to update OWML and the GameLibs, I made them symbols because then we only have to change this file when OWML or hte game libs update and not have to worry about anything else.
-
-It also handles stuff like declaring the author name and getting the year.
+This holds the configuration for the template, here's where you'll go to update OWML and the GameLibs, I made them symbols because then we only have to change this file when OWML or the game libs update and not have to worry about anything else.
 
 #### Symbols
 
 - `$safeprojectname$`: The name the user set for the project
-- `$username$`: The authore name the user entered
+- `$username$`: The author name the user entered
 - `$year$`: The current year
 - `$owmlVersion$` The current OWML version
 - `$gameLibsVersion$`: The current game libs version
