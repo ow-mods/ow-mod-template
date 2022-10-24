@@ -37,7 +37,7 @@ This holds the configuration for the template, here's where you'll go to update 
 
 Everything in this folder is only copied if `usesNH` is true.
 
-### templates/OuterWildsModTemplate/.github/workflows/relase.yml
+### templates/OuterWildsModTemplate/.github/workflows/release.yml
 
 A convenient workflow that allows people to generate a release with the correct tag, version, etc. automatically. Also refuses to run if the version in `manifest.json` is already released.
 
