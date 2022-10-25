@@ -24,6 +24,7 @@
       ],
       "exclude": [
         "nh-stuff/**",
+	"parent-stuff/**",
         "**/[Bb]in/**",
         "**/[Oo]bj/**",
         ".template.config/**/*",
@@ -35,12 +36,10 @@
       ]
     },
     {
-      "source": "./",
+      "source": "./parent-stuff",
       "target": "../",
       "include": [
-        "**/.gitignore",
-        ".github/**",
-        "LICENSE"
+        "**/*"
       ]
     },
     {

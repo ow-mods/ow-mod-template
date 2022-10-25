@@ -33,6 +33,10 @@ This holds the configuration for the template, here's where you'll go to update 
 - `$gameLibsVersion$`: The current game libs version
 - `usesNH`: Whether the user wants to add New Horizons to the project
 
+### templates/OuterWildsModTemplate/parent-stuff
+
+This contains stuff that needs to be copied to the root of the project (i.e. `.github`, `.gitignore`)
+
 ### templates/OuterWildsModTemplate/nh-stuff
 
 Everything in this folder is only copied if `usesNH` is true.
