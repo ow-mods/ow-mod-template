@@ -78,7 +78,7 @@ jobs:
               uses: "ncipollo/release-action@v1"
               with:
                 allowUpdates: true
-                commit: main
+                commit: ${{ github.ref_name }}
                 tag: v${{ needs.pre_job.outputs.version }}
                 name: Version ${{ needs.pre_job.outputs.version }}
                 omitBodyDuringUpdate: true
