@@ -27,7 +27,8 @@ This holds the configuration for the template, here's where you'll go to update 
 #### Symbols
 
 - `$safeprojectname$`: The name the user set for the project
-- `$username$`: The author name the user entered
+- `$username$`: The author name the user entered, without spaces
+- `$unsafe_username$`: The author name with spaces
 - `$year$`: The current year
 - `$owmlVersion$` The current OWML version
 - `$gameLibsVersion$`: The current game libs version
