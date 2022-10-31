@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/ow-mods/owml/master/schemas/manifest_schema.json",
   "filename": "$safeprojectname$.dll",
-  "author": "$username$",
+  "author": "$unsafe_username$",
   "name": "$safeprojectname$",
   "uniqueName": "$username$.$safeprojectname$",
   "version": "0.1.0",

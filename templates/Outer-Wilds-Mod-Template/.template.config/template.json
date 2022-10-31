@@ -62,8 +62,14 @@
       "displayName": "Author Name",
       "defaultValue": "Ernesto",
       "datatype": "string",
-      "replaces": "$username$",
+      "replaces": "$unsafe_username$",
       "description": "Author of this mod (no spaces!)"
+    },
+    "SafeAuthorName": {
+      "type": "derived",
+      "valueSource": "AuthorName",
+      "valueTransform": "RemoveSpaces",
+      "replaces": "$username$"
     },
     "year": {
       "type": "generated",
@@ -102,6 +108,13 @@
       "description": "If specified, skips the automatic restore of the project on create.",
       "defaultValue": "false"
     }
+  },
+  "forms": {
+      "RemoveSpaces": {
+        "identifier": "replace",
+	"pattern": "(\\s)",
+	"replacement": ""
+      }
   },
   "postActions": [
     {
