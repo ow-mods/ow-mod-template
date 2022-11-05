@@ -52,3 +52,14 @@ Whether to turn this mod into a New Horizons addon:
 - Ensures `planets`, `translations`, `systems`, and `addon-manifest.json` are copied to the output folder
 
 Defaults to `false`.
+
+## Adding The Workflow To Existing Projects
+
+If you have an existing project and want to add the workflow to it, follow this guide.
+
+1. Copy `templates/Outer-Wilds-Mod-Template/parent-stuff/.github/workflows/release.yml`.
+2. Change `PROJ_USERNAME` near the top to the safe author name (the string in the `uniqueName` before the `.`).
+3. Change the `PROJ_NAME` near the top to the safe project name (the string in the `uniqueName` after the `.`). **Important: The project name must also be the project folder's name. Meaning the folder your .csproj file is in must be both at the root of the repo and have the same name as your project. (Most IDEs set it up this way by default)**
+4. That's it! Simply push the new workflow and run it.
+
+ 
