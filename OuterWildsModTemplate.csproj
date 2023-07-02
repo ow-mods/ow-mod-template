@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.18</PackageVersion>
+    <PackageVersion>1.19</PackageVersion>
     <PackageId>Bwc9876.OuterWildsModTemplate</PackageId>
     <Title>Outer Wilds Mod Template</Title>
     <Authors>Bwc9876</Authors>
