@@ -1,6 +1,6 @@
 # Outer Wilds Mod Template
 
-A nuget package that contains a template for creating outer wilds mods
+A [nuget package](https://www.nuget.org/packages/Bwc9876.OuterWildsModTemplate) that contains a template for creating outer wilds mods
 
 ## Installation
 
