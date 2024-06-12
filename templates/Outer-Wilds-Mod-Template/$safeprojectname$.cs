@@ -12,7 +12,7 @@ public class $safeprojectname$ : ModBehaviour
 	public INewHorizons NewHorizons;
 #endif
 
-	private void Awake()
+	public void Awake()
 	{
 		Instance = this;
 		// You won't be able to access OWML's mod helper in Awake.
@@ -20,7 +20,7 @@ public class $safeprojectname$ : ModBehaviour
 		// Use Start() instead.
 	}
 
-	private void Start()
+	public void Start()
 	{
 		// Starting here, you'll have access to OWML's mod helper.
 		ModHelper.Console.WriteLine($"My mod {nameof($safeprojectname$)} is loaded!", MessageType.Success);
