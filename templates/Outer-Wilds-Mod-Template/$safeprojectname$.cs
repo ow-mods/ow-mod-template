@@ -1,5 +1,7 @@
-﻿using OWML.Common;
+﻿using HarmonyLib;
+using OWML.Common;
 using OWML.ModHelper;
+using System.Reflection;
 
 namespace $safeprojectname$;
 
@@ -28,6 +30,8 @@ public class $safeprojectname$ : ModBehaviour
 		NewHorizons = ModHelper.Interaction.TryGetModApi<INewHorizons>("xen.NewHorizons");
 		NewHorizons.LoadConfigs(this);
 #endif
+
+		new Harmony("$username$.$safeprojectname$").PatchAll(Assembly.GetExecutingAssembly());
 
 		// Example of accessing game code.
 		LoadManager.OnCompleteSceneLoad += (scene, loadScene) =>
