@@ -34,11 +34,14 @@ public class $safeprojectname$ : ModBehaviour
 		new Harmony("$username$.$safeprojectname$").PatchAll(Assembly.GetExecutingAssembly());
 
 		// Example of accessing game code.
-		LoadManager.OnCompleteSceneLoad += (scene, loadScene) =>
-		{
-			if (loadScene != OWScene.SolarSystem) return;
-			ModHelper.Console.WriteLine("Loaded into solar system!", MessageType.Success);
-		};
+		OnCompleteSceneLoad(OWScene.TitleScreen, OWScene.TitleScreen); // We start on title screen
+		LoadManager.OnCompleteSceneLoad += OnCompleteSceneLoad;
+	}
+
+	public void OnCompleteSceneLoad(OWScene previousScene, OWScene newScene)
+	{
+		if (newScene != OWScene.SolarSystem) return;
+		ModHelper.Console.WriteLine("Loaded into solar system!", MessageType.Success);
 	}
 }
 
