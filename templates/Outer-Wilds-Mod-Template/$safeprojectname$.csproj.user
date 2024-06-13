@@ -1,5 +1,8 @@
 ﻿<Project>
-  <PropertyGroup>
-    <OutputPath>$(AppData)\OuterWildsModManager\OWML\Mods\$username$.$safeprojectname$</OutputPath>
+  <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
+    <OutputPath>$(AppData)/OuterWildsModManager/OWML/Mods/$username$.$safeprojectname$</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(OS)' == 'Unix'">
+    <OutputPath>$(HOME)/.local/share/ow-mod-man/OWML/Mods/$username$.$safeprojectname$</OutputPath>
   </PropertyGroup>
 </Project>
