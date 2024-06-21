@@ -3,6 +3,6 @@
     <OutputPath>$(AppData)/OuterWildsModManager/OWML/Mods/$username$.$safeprojectname$</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(OS)' == 'Unix'">
-    <OutputPath>$(HOME)/.local/share/ow-mod-man/OWML/Mods/$username$.$safeprojectname$</OutputPath>
+    <OutputPath>$(HOME)/.local/share/OuterWildsModManager/OWML/Mods/$username$.$safeprojectname$</OutputPath>
   </PropertyGroup>
 </Project>
