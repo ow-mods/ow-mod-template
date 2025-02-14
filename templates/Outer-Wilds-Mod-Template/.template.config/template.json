@@ -90,7 +90,7 @@
       "type": "generated",
       "generator": "constant",
       "parameters": {
-        "value": "2.14.0"
+        "value": "2.15.1"
       },
       "replaces": "$owmlVersion$"
     },
