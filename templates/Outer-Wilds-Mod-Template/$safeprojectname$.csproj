@@ -42,6 +42,9 @@
     <None Include="subtitle.png" Condition="Exists('subtitle.png')">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="title-screen.json" Condition="Exists('title-screen.json')">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <!--#endif -->
 </Project>
