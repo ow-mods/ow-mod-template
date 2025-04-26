@@ -53,6 +53,12 @@ Whether to turn this mod into a New Horizons addon:
 
 Defaults to `false`.
 
+### Put github files in same folder as project (noParentStuff)
+
+Puts the license, github workflow, and gitignore files in the project folder. Meant for use with the `Place solution and project in same directory` option.
+
+Defaults to `true`.
+
 ## Adding The Workflow To Existing Projects
 
 If you have an existing project and want to add the workflow to it, follow this guide.

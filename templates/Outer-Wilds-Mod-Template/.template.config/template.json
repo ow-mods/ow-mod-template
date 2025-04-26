@@ -24,7 +24,8 @@
       ],
       "exclude": [
         "nh-stuff/**",
-	"parent-stuff/**",
+        "parent-stuff/**",
+        "no-parent-stuff/**",
         "**/[Bb]in/**",
         "**/[Oo]bj/**",
         ".template.config/**/*",
@@ -38,8 +39,25 @@
     {
       "source": "./parent-stuff",
       "target": "../",
-      "include": [
-        "**/*"
+      "modifiers": [
+        {
+          "condition": "(noParentStuff)",
+          "exclude": [
+            "**"
+          ]
+        }
+      ]
+    },
+    {
+      "source": "./no-parent-stuff",
+      "target": "./",
+      "modifiers": [
+        {
+          "condition": "(!noParentStuff)",
+          "exclude": [
+            "**"
+          ]
+        }
       ]
     },
     {
@@ -84,6 +102,13 @@
       "displayName": "Use New Horizons",
       "datatype": "bool",
       "description": "Adds the New Horizons API automatically and calls LoadConfigs in Start",
+      "defaultValue": "false"
+    },
+    "noParentStuff": {
+      "type": "parameter",
+      "displayName": "Put github files in same folder as project",
+      "datatype": "bool",
+      "description": "Puts the license, github workflow, and gitignore files in the project folder. Meant for use with the \"Place solution and project in same directory\" option.",
       "defaultValue": "false"
     },
     "owmlVersion": {

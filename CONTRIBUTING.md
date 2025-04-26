@@ -36,7 +36,11 @@ This holds the configuration for the template, here's where you'll go to update 
 
 ### templates/OuterWildsModTemplate/parent-stuff
 
-This contains stuff that needs to be copied to the root of the project (i.e. `.github`, `.gitignore`)
+This contains stuff that needs to be copied to the parent folder of the project (i.e. `.github`, `.gitignore`) if `noParentStuff` is false.
+
+### templates/OuterWildsModTemplate/no-parent-stuff
+
+This contains stuff that needs to be copied to the same folder as the project (i.e. `.github`, `.gitignore`) if `noParentStuff` is true.
 
 ### templates/OuterWildsModTemplate/nh-stuff
 
