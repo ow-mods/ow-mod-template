@@ -49,7 +49,7 @@ Whether to turn this mod into a New Horizons addon:
 - Adds the INewHorizons Interface
 - Gets the API and loads config in `Start`
 - Adds New Horizons as a dependency
-- Ensures `planets`, `translations`, `systems`, `addon-manifest.json`, and `subtitle.png` are copied to the output folder
+- Ensures `planets`, `translations`, `systems`, `addon-manifest.json`, `title-screen.json`, and `subtitle.png` are copied to the output folder
 
 Defaults to `false`.
 
