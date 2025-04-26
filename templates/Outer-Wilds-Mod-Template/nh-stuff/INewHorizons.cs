@@ -73,6 +73,17 @@ public interface INewHorizons
   /// Gives the name of the planet that was just loaded.
   /// </summary>
   UnityEvent<string> GetBodyLoadedEvent();
+
+  /// <summary>
+  /// An event invoked when NH has finished building a title screen.
+  /// Gives the unique name of the mod the title screen builder was from and the index for when you have multiple title screens.
+  /// </summary>
+  UnityEvent<string, int> GetTitleScreenLoadedEvent();
+
+  /// <summary>
+  /// An event invoked when NH has finished building the title screen.
+  /// </summary>
+  UnityEvent GetAllTitleScreensLoadedEvent();
   #endregion
 
   #region Querying configs
@@ -81,20 +92,30 @@ public interface INewHorizons
   /// </summary>
   object QueryBody(Type outType, string bodyName, string path);
 
+  ///<summary>
+  /// Uses JSONPath to query a body
+  /// </summary>
+  T QueryBody<T>(string bodyName, string path);
+
   /// <summary>
   /// Uses JSONPath to query the current star system
   /// </summary>
   object QuerySystem(Type outType, string path);
 
   ///<summary>
-  /// Uses JSONPath to query a body
-  /// </summary>
-  T QueryBody<T>(string bodyName, string path);
-
-  ///<summary>
   /// Uses JSONPath to query the current star system
   ///</summary>
   T QuerySystem<T>(string path);
+
+  /// <summary>
+  /// Uses JSONPath to query a title screen config
+  /// </summary>
+  object QueryTitleScreen(Type outType, IModBehaviour mod, string path);
+
+  ///<summary>
+  /// Uses JSONPath to query a title screen config
+  /// </summary>
+  T QueryTitleScreen<T>(IModBehaviour mod, string path);
 
   /// <summary>
   /// Register your own builder that will act on the given GameObject by reading the json string of its "extras" module
@@ -108,7 +129,7 @@ public interface INewHorizons
   /// This is the same as using Props->details in a config, but also returns the spawned gameObject to you.
   /// </summary>
   GameObject SpawnObject(IModBehaviour mod, GameObject planet, Sector sector, string propToCopyPath, Vector3 position, Vector3 eulerAngles, 
-    float scale, bool alignWithNormal);
+      float scale, bool alignWithNormal);
 
   /// <summary>
   /// Allows you to spawn an AudioSignal on a planet.
@@ -146,7 +167,8 @@ public interface INewHorizons
   void DefineStarSystem(string name, string config, IModBehaviour mod);
 
   /// <summary>
-  /// Allows creation of dialogue by directly passing the xml and dialogueInfo json contents as strings
+  /// Allows creation of dialogue by directly passing the xml and dialogueInfo json contents as strings. 
+  /// Must be called at least 2 frames before entering dialogue if you're using ReuseDialogueOptionsFrom
   /// </summary>
   /// <param name="textAssetID">TextAsset name used for compatibility with voice mod. Just has to be a unique identifier.</param>
   /// <param name="xml">The contents of the dialogue xml file as a string</param>
@@ -214,4 +236,23 @@ public interface INewHorizons
   /// <param name="mod"></param>
   /// <param name="filePath"></param>
   void AddSubtitle(IModBehaviour mod, string filePath);
+
+  /// <summary>
+  /// Whatever system the player is warping to next, they will spawn at the spawn point with this ID
+  /// Gets reset after warping. Is also overriden by entering a system-changing black hole or warp volume by their `spawnPointID`
+  /// </summary>
+  /// <param name="id"></param>
+  void SetNextSpawnID(string id);
+
+  /// <summary>
+  /// Registers a builder for the main menu.
+  /// Call this once before the main menu finishes loading
+  /// </summary>
+  /// <param name="mod"></param>
+  /// <param name="builder">Builder to run when this title screen is selected. The GameObject passed through it is the main scene object containing both the background and menu planet.</param>
+  /// <param name="disableNHPlanets">If set to true, NH generated planets will not show on the title screen. If false, this title screen has the same chance as other NH planet title screens to show.</param>
+  /// <param name="shareTitleScreen">If set to true, this custom title screen will merge with all other custom title screens with shareTitleScreen set to true. If false, NH will randomly select between this and other valid title screens that are loaded.</param>
+  /// <param name="persistentConditionRequired">Persistent condition required for this title screen to appear.</param>
+  /// <param name="factRequired">Ship log fact required for this title screen to appear.</param>
+  void RegisterTitleScreenBuilder(IModBehaviour mod, Action<GameObject> builder, bool disableNHPlanets = true, bool shareTitleScreen = false, string persistentConditionRequired = null, string factRequired = null);
 }
