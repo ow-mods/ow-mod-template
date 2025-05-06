@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "windows": {
+        "command": "dotnet build && start owmods://run-game/$username$.$safeprojectname$"
+      },
+      "linux": {
+        "command": "dotnet build && xdg-open owmods://run-game/$username$.$safeprojectname$"
+      },
+      "name": "Run Game",
+      "request": "launch",
+      "type": "node-terminal"
+    }
+  ]
+}
