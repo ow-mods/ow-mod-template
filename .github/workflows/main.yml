@@ -10,6 +10,8 @@ jobs:
   Publish:
     name: Publish Package
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     
     steps:
       - uses: actions/checkout@v7
